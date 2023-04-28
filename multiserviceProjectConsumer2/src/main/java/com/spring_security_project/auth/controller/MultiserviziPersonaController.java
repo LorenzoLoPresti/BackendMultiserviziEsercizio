@@ -16,11 +16,11 @@ import org.springframework.web.client.RestTemplate;
 public class MultiserviziPersonaController {
 
 	@GetMapping("/data1")
-	public String getStringa() {
+	public ResponseEntity<?> getStringa() {
 		RestTemplate rt = new RestTemplate();
 		String url = "http://localhost:8081/app/data1";
 		ResponseEntity<String> response = rt.getForEntity(url, String.class);
-		return "Stringa -> " + response.getBody();
+		return response;
 	}
 	
 	@GetMapping("/data2")
